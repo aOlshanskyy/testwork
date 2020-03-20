@@ -1,0 +1,6 @@
+<hr>
+<%= image_tag comment.user.avatar.url(:thumb), width: 50, height: 30 %>
+<%= comment.user.nickname%>
+
+<p><%=comment.text%></p>
+<p>Create at: <%= comment.created_at %></p><hr>

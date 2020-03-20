@@ -2,26 +2,8 @@
 <div class="container" style="text-align: justify;">
 	<%= @article.body %>
 
-	<% @comments.each do |comment|%>
-	<hr>
-	<%= image_tag comment.user.avatar.url(:thumb), width: 50, height: 30 %>
-	<%= comment.user.nickname%>
-
-	<p><%=comment.textofcom%></p>
-	<p>Create at: <%= comment.created_at %></p><hr>
-	<%end%>
+	<%=render @comments%>
 </div>
 <br/>
 <hr>
-	<%= form_for :articlescoment, url: group_article_articlescoments_path(@group.id, @article.id) do |article| %>
-
-	<% if flash[:notice] %>
-		<div class="notice"> <%= flash[:notice] %> </div>
-	<% end %>
-	<div align="center">
-	<p><%= article.label "Write Comment" %></p>
-	<%= article.text_area :textofcom, cols: 25, rows: 3 %><br />
-	<br/>
-	<p><%= article.submit "Send", class: "btn btn-primary active"%></p><br/>
-	</div>
-	<%end%>
+<%= render "comments/form", object:@article%>
