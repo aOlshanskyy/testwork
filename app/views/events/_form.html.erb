@@ -1,0 +1,17 @@
+<div class="form-group">
+  <%= f.label :evname %>
+  <%= f.text_field :evname, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+  <%= f.label :day %>
+  <%= f.datetime_select :day, class: 'form-control' %>
+ 
+</div>
+
+
+
+<div class="form-group">
+<%= f.submit 'Зберегти', class: "btn btn-primary active btn-lg" %>
+<%= link_to 'Назад', :back, class: 'btn btn-outline-secondary'%>
+</div>

@@ -1,0 +1,50 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" style="color: white;">Site</a>
+  <form class="form-inline">
+   
+    <% if user_signed_in? %>
+      <%= link_to new_group_path do %>
+          <button type="button" class="btn btn-outline-light"><span>+</span></button>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+          <button type="button" class="btn btn-outline-warning">Log out</button>
+    <%end%>
+    <%end%>
+    <% else %>
+       <%= link_to user_session_path do %>
+        <button type="button" class="btn btn-outline-warning">Log in</button>
+        <%= link_to new_user_registration_path do %>
+         <button type="button" class="btn btn-outline-light btn-sm">Registration</button>
+       
+    <%end%>
+   <%end%>
+   <%end%>
+  </form>
+</nav>
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Navbar</a>
+
+
+  
+ 
+    <form class="form-inline">
+
+    <% if user_signed_in? %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+          <button class="btn btn-outline-info" type="button" id="login">ВИЙТИ</button>
+    <%end%>
+    <% else %>
+       <%= link_to user_session_path do %>
+         <button class="btn btn-outline-info" type="button" id="login">ВВІЙТИ</button> 
+        <%= link_to new_user_registration_path do %>
+         <button class="btn btn-sm btn-outline-secondary" type="button">РЕЄСТРАЦІЯ</button>
+       
+    <%end%>
+   <%end%>
+  <%end%>
+
+  
+  </form>
+ 
+</nav> -->

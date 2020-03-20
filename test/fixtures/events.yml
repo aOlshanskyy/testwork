@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  evname: MyString
+  user_id: 1
+  group_id: 1
+  day: 2020-03-16 21:11:42
+
+two:
+  evname: MyString
+  user_id: 1
+  group_id: 1
+  day: 2020-03-16 21:11:42
