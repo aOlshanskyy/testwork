@@ -3,8 +3,10 @@
 Rails.application.routes.draw do
   root to: 'groups#index'
   devise_for :users
+
   resources :groups do
     get 'adduser'
+    get 'people'
     resources :candidates do
     end
     resources :articles do
@@ -14,7 +16,8 @@ Rails.application.routes.draw do
   end
   resources :comments
 
-  get '/groups/:group_id/enter/:id', to: 'enter#create', as: 'enter'
-  delete '/groups/:group_id/enter/:id', to: 'enter#destroy'
+  # get "/groups/:group_id/people", to: "groups#people", as: "groups"
+  get "/groups/:group_id/enters/:id", to: "enters#create", as: "enters"
+  delete "/groups/:group_id/enters/:id", to: "enters#destroy"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

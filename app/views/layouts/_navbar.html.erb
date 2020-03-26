@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark">
+<!-- <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand" style="color: white;">Site</a>
   <form class="form-inline">
    
@@ -19,32 +19,52 @@
    <%end%>
    <%end%>
   </form>
+</nav> -->
+<!-- #e3f2fd; -->
+<nav class="navbar navbar-light" style="background-color:  #cff1ef;">
+  <a class="navbar-brand" href="/" style="color: #424874;">
+    Site
+  </a>
+
+  <form class="form-inline">
+   
+    <% if user_signed_in? %>
+      <div class="btn-group dropleft" >
+        <!-- <button type="button" class="btn btn-danger">Action</button> -->
+        <button  type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <%= image_tag current_user.avatar.url(:thumb), width: 40, height: 40 %>
+        <div class="dropdown-menu">
+        <a class="dropdown-item"> <%= link_to new_group_path do%><p style="padding-left: 20px; color: #000;">Add group</p><%end%></a>
+        <a class="dropdown-item"> <%= link_to destroy_user_session_path, method: :delete do%><p style="padding-left: 20px; color: #000;">Logout</p><%end%></a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item"> <%= link_to edit_user_registration_path do%><p style="padding-left: 20px; color: #000;">Settings</p><%end%></a>
+      </div>
+    </div>
+
+    <% else %>
+      <div class="btn-group dropdown" >
+        <button type="button" class="btn btn-info">Option</button>
+        <button  type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu">
+        <a class="dropdown-item"> <%= link_to user_session_path do%><p style="padding-left: 20px; color: #000;">Login</p><%end%></a>
+        <a class="dropdown-item"> <%= link_to new_user_registration_path do%><p style="padding-left: 20px; color: #000;">Registration</p><%end%></a>
+      </div>
+    </div>
+
+
+     <!--   <%= link_to user_session_path do %>
+        <button type="button" class="btn btn-outline-warning">Login</button>
+        <%= link_to new_user_registration_path do %>
+         <button type="button" class="btn btn-outline-light btn-sm">Registration</button>
+       
+    <%end%>
+   <%end%> -->
+   <%end%>
+  </form>
 </nav>
 
 
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Navbar</a>
-
-
-  
- 
-    <form class="form-inline">
-
-    <% if user_signed_in? %>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-          <button class="btn btn-outline-info" type="button" id="login">ВИЙТИ</button>
-    <%end%>
-    <% else %>
-       <%= link_to user_session_path do %>
-         <button class="btn btn-outline-info" type="button" id="login">ВВІЙТИ</button> 
-        <%= link_to new_user_registration_path do %>
-         <button class="btn btn-sm btn-outline-secondary" type="button">РЕЄСТРАЦІЯ</button>
-       
-    <%end%>
-   <%end%>
-  <%end%>
-
-  
-  </form>
- 
-</nav> -->

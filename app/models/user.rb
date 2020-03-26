@@ -13,6 +13,6 @@ class User < ApplicationRecord
   has_many :candidates
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_attached_file :avatar, styles: { medium: '300x300>', thumb: '100x100>' }, default_url: '/images/Default.png'
+  has_attached_file :avatar, styles: { medium: '300x300>', thumb: '100x100>' }, default_url: '/images/Default2.png'
   validates_attachment_content_type :avatar, content_type: %r{\Aimage/.*\z}
 end

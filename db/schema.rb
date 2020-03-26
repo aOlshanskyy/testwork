@@ -10,21 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200320113743) do
+ActiveRecord::Schema.define(version: 20200326143949) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.integer "user_id"
     t.string "body"
     t.integer "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "articlescoments", force: :cascade do |t|
-    t.string "textofcom"
-    t.integer "user_id"
-    t.integer "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -60,6 +52,7 @@ ActiveRecord::Schema.define(version: 20200320113743) do
     t.datetime "day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "context"
   end
 
   create_table "groups", force: :cascade do |t|

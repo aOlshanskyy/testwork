@@ -1,21 +1,43 @@
+
+<!-- <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</nav> -->
 <h1 style="text-align: center;"><%= @group.name%></h1>
-<!-- # <%  @group.user_id %> -->
-Autor: <%= @group.user.nickname %><br>
-<b style='text-align: right;'>Group created <%= @group.created_at %></b>
+<table style="width: 100%;">
+	<tr>
+		<td style="width: 30%;">
+			<p style="color: #424874;">Autor: <%= @group.user.nickname %><br></p>
+		</td>
+		<td style="width: 30%; text-align: center;">
+			<a class="btn btn-info" href="/groups/<%= @group.id%>/people" role="button">Count people :<%= Enter.where(group_id: @group.id).count + 1%></a>
+		</td>
+		<td style="width: 30%; text-align: right; color: #424874;">
+			<b style='text-align: right;'>Group created <%= @group.created_at %></b>
+		</td>
+	<tr>
+</table>
 <table style="width: 100%;">
 		<tr>
 			<td style="text-align: left; width: 70%">
 			<h3><%= @group.context %></h3>
 			</td>
 			<td style="text-align: right;">
+			<%if @articles.count > 0%>
 				<h3 style="text-align: center;">Article group</h3>
 				<% @articles.each do |article|%>
 					<li><h4 style="text-align: left; text-decoration: none; color: #000;"><%= link_to article.title, group_article_path(@group.id, article) %></h4></li>
 				<%end%>
+			<%end%>
+			<%if @events.count > 0%>
 				<h3 style="text-align: center;">Event group</h3>
 				<% @events.each do |event|%>
 					<li><h4 style="text-align: left; text-decoration: none; color: #000;"><%= link_to event.evname, group_event_path(@group.id, event) %> : <%= event.day.to_date.strftime('%d %B, %Y') %> </h4></li> 
 				<%end%>
+			<%end%>
 			</td>
 		</tr>
 </table>

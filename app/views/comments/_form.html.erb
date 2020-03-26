@@ -1,6 +1,8 @@
+<div style="text-align: center;">
 <%= form_for :comment, url: comments_path() do |f| %>
   <%= f.hidden_field :object_id,value: object.id %>
   <%= f.hidden_field :object_type,value: object.class.name%>
-  <%= f.text_area :text %>
+  <%= f.text_area :text %><br>
   <%= f.submit :comment%>
 <% end %>
+</div>

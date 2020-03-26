@@ -1,3 +1,5 @@
+<!-- <p><%= link_to @group.name, group_path(@group.id)%></p>  -->
+<a style="margin-top: 20px;" class="btn btn-info" href="/groups/<%= @group.id%>" role="button">Redirect in <%=@group.name%></a>
 <h1 style="text-align: center;"><%= @article.title %></h1>
 <div class="container" style="text-align: justify;">
 	<%= @article.body %>

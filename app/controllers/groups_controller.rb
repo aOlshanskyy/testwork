@@ -3,8 +3,7 @@ class GroupsController < ApplicationController
 
 	def index
 		$flag = false
-		@groups = Group.all	
-		
+		@groups = Group.all
 	end
       
 	def new
@@ -61,6 +60,11 @@ class GroupsController < ApplicationController
 
 	end
 
+	def people
+		@group = Group.find(params[:group_id])
+		@enters = Enter.where(group_id: @group.id)
+	
+	end
 
 	private
 

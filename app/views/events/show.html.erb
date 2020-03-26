@@ -1,4 +1,15 @@
-<%= @event.evname%>
+<a style="margin-top: 20px;" class="btn btn-info" href="/groups/<%= @group.id%>" role="button">Redirect in <%=@group.name%></a><br/>
+<h3 style="text-align: center; color: #424874;"><%= @event.evname%></h3>
+<table style="width: 100%;">
+	<tr>
+		<td style="width: 50%;">
+			<p style=" color: #424874;"><%= @event.context%></p>
+		</td>
+		<td style="width: 50%; text-align: right; color: #424874;">
+			<h4>Date : <%= @event.day.to_date.strftime('%d %B, %Y') %></h4>
+		</td>
+	</tr>
+</table>
 <%=render @comments%>
 <br/>
 <hr>

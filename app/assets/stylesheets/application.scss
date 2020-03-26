@@ -14,3 +14,55 @@
  *= require_self
  */
 @import "bootstrap";
+.box{
+	
+	width: 400px;
+	padding: 40px;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 5%);
+	background: #cff1ef;
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.account{
+	
+	width: 400px;
+	padding: 40px;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 5%);
+	background: #cff1ef;
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}	
+.avatar{
+	text-align: center;
+	margin-top: -90px;
+}
+.comment{
+	padding: 5px;
+	margin-left: 50px;
+	margin-right: 50px;
+	box-sizing: border-box;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+
+}
+
+.user{
+	text-align: left;
+	padding: 5px;
+	background: #cff1ef;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+}
