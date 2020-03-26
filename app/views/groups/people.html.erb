@@ -2,13 +2,19 @@
 <div class="box">
 	
 	<h1 style="color: #424874; text-align: center;"> People group</h1>
-	<div class="user">
+	<div class="row">
 		<% @enters.each do |enter|%>
-		
+			<%=render 'groups/user', enter:enter%>
+			<!-- <div class="user">
+				
 				<%= image_tag enter.user.avatar.url(:thumb), width: 40, height: 40 %><br/>
-				<%= enter.user.nickname %><br/>
+				<%= enter.user.nickname %>
+				
+			</div> -->
+
 		<%end%>
-		<%= image_tag @group.user.avatar.url(:thumb), width: 40, height: 40 %><br/>
-			<%= @group.user.nickname %><br/>
 	</div>
+	<p style="color: brown;text-align: center;">Autor :<br/>
+		<%= image_tag @group.user.avatar.url(:thumb), width: 40, height: 40 %><br/>
+		<%= @group.user.nickname %><br/></p>
 </div>

@@ -5,29 +5,18 @@ class EntersController < ApplicationController
 
 
 	def create
-		# if $flag = false
-		# 	@enter = Enter.create(user_id: current_user.id, group_id: @group.id, permission: true)
-		# 	if @enter.save 
-		# 		redirect_to group_path(@enter.group_id)
-		# 	else
-		# 		redirect_to root_path
-		# 	end
-		# else 
-		# 	@candidate = Candidate.last
-		# 	@user = User.where(nickname: name)
-		# 	@enter = Enter.create(user_id: @user.id, group_id: @group.id, permission: true)
-		# 	if @enter.save 
-		# 		redirect_to group_path(@enter.group_id)
-		# 	else
-		# 		redirect_to root_path
-		# 	end
-		# end
-		# redirect_to group_path(@enter.group_id)
-		@enter = Enter.create(user_id: current_user.id, group_id: @group.id, permission: true)
-		if @enter.save
-			redirect_to group_path(@enter.group_id)
-		else
+		if $flag == false
+			@enter = Enter.create(user_id: current_user.id, group_id: @group.id, permission: true)
+			if @enter.save
+				redirect_to group_path(@enter.group_id)
+			else
 			
+			end
+		else
+			@candidate = Candidate.last
+			@user = User.where(nickname: @candidate.name).last
+			@enter = Enter.create(user_id: @user.id, group_id: @group.id, permission: true)
+			redirect_to group_path(@enter.group_id)
 		end
 	end
 

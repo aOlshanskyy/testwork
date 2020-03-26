@@ -21,11 +21,11 @@ class GroupsController < ApplicationController
 	end
 
 	def adduser
-		@candidate = Candidate.new
-		@gr = @candidate.group_id
 		$flag = true
-		@enter = Enter.create
-	
+		@group = Group.find(params[:group_id])
+		@candidate = Candidate.new
+		redirect_to enters_path(@group.id, 0)
+		
 		# @user = User.where(nickname: @candidate.name)
 		# params[:enter][:user_id] = @user
 		# params[:enter][:group_id] = @group.id
