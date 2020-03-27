@@ -3,8 +3,8 @@
 class CandidatesController < ApplicationController
   def create
     @group = Group.find(params[:group_id])
-    params[:candidate][:group_id] = @group.id
     @candidate = Candidate.create(candidate_params)
+    redirect_to group_path(@group)
   end
 
   private

@@ -1,9 +1,9 @@
 
 <div class="comment">
 	<table style="width: 100%;">
-	<tr style="width: 50%;">	
+	<tr style="width: 50%;">
 		<td>
-<%= image_tag comment.user.avatar.url(:thumb), width: 50, height: 50 %>
+<%= image_tag(comment.user.avatar, width: 50, height: 50) if comment.user.avatar.attached? %>
 
 <%= comment.user.nickname%>
 </td>

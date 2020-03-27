@@ -37,7 +37,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    pp params.require(:event).permit(:user_id, :evname, :day, :group_id, :context)
+    params.require(:event).permit(:user_id, :evname, :day, :group_id, :context)
   end
 
   def set_group

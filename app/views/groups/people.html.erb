@@ -1,20 +1,12 @@
-<a style="margin-top: 20px;" class="btn btn-info" href="/groups/<%= @group.id%>" role="button">Redirect in <%=@group.name%></a>
+<%= link_to group_path(@group), class:"btn btn-info", style:"margin-top: 20px;" do %>Redirect in <%=@group.name%><%end%>
 <div class="box">
-	
+
 	<h1 style="color: #424874; text-align: center;"> People group</h1>
 	<div class="row">
-		<% @enters.each do |enter|%>
-			<%=render 'groups/user', enter:enter%>
-			<!-- <div class="user">
-				
-				<%= image_tag enter.user.avatar.url(:thumb), width: 40, height: 40 %><br/>
-				<%= enter.user.nickname %>
-				
-			</div> -->
+		<%= render @group.users%>
 
-		<%end%>
 	</div>
 	<p style="color: brown;text-align: center;">Autor :<br/>
-		<%= image_tag @group.user.avatar.url(:thumb), width: 40, height: 40 %><br/>
-		<%= @group.user.nickname %><br/></p>
+		<%= render @group.user%>
+<br/></p>
 </div>

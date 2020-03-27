@@ -14,8 +14,9 @@
  *= require_self
  */
 @import "bootstrap";
+@import 'font_awesome5_webfont';
 .box{
-	
+
 	width: 400px;
 	padding: 40px;
 	position: relative;
@@ -31,7 +32,7 @@
 }
 
 .account{
-	
+
 	width: 400px;
 	padding: 40px;
 	position: relative;
@@ -44,7 +45,7 @@
 	border-radius: 10px;
 	padding-bottom: 20px;
 	margin-bottom: 20px;
-}	
+}
 .avatar{
 	text-align: center;
 	margin-top: -90px;

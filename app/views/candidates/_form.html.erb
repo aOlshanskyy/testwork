@@ -1,5 +1,5 @@
-<%= form_for @candidate, url:group_candidates_path do |f| %>
 
+<%=f.hidden_field :group_id%>
 
 <div class="form-group">
   <%= f.label :name %>
@@ -11,4 +11,3 @@
 <%= f.submit 'Зберегти', class: "btn btn-primary active btn-lg" %>
 <%= link_to 'Назад', :back, class: 'btn btn-outline-secondary'%>
 </div>
-<%end%>

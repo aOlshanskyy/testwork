@@ -1,7 +1,7 @@
 <div class="fon">
 <h2 style="text-align: center; color: #424874;">Account </h2>
 <div class="account">
-<div class="avatar"><%= image_tag current_user.avatar.url(:thumb), width: 85, height: 85 %><br/></div>
+<div class="avatar"><%= image_tag(current_user.avatar, width: 85, height: 85) if current_user.avatar.attached? %><br/></div>
 <p style="text-align: center; font-size: 28px; color: #424874;"><%= current_user.nickname %></p>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>

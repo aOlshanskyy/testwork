@@ -1,15 +1,14 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
-    before_action :devise_sign_up_params, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
-  # before_action :bool
 
-  private
+  protected
 
-  def devise_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys:[:attribute, :nickname, :avatar ])
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[nickname email avatar password password_confirmation])
+    devise_parameter_sanitizer.permit(:sign_in, keys: %i[email password])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[avatar nickname email password password_confirmation current_password])
   end
-
-  # def bool
-  # 	$flag = false
-  # end
 end

@@ -2,18 +2,16 @@
 
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, exist: [:show]
-  before_action :set_group
+  before_action :article, only: [:edit]
 
   def new
-    @article = Article.new
+    @article = group.articles.build
   end
 
   def create
-    params[:article][:group_id] = @group.id
-    params[:article][:user_id] = current_user.id
-    @article = Article.create(article_params)
-    if @article.save
-      redirect_to group_path(@group.id)
+    @article = current_user.articles.build(article_params)
+    if article.save
+      redirect_to group_path(group.id)
     else
       render 'new'
     end
@@ -22,18 +20,17 @@ class ArticlesController < ApplicationController
   def edit; end
 
   def update
-    @article.update(article_params)
+    article.update(article_params)
     redirect_to root_path
   end
 
   def destroy
-    @article.destroy
+    article.destroy
     redirect_to root_path
   end
 
   def show
-    @article = Article.find(params[:id])
-    @comments = @article.comments
+    @comments = article.comments
   end
 
   private
@@ -42,11 +39,11 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:user_id, :title, :body, :group_id)
   end
 
-  def set_group
-    @group = Group.find(params[:group_id])
+  def group
+    @group ||= Group.find(params[:group_id])
   end
 
-  def set_article
-    @article = Article.find(params[:id])
+  def article
+    @article ||= group.articles.find(params[:id]) if group
   end
 end

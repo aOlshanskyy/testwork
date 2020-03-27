@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'font_awesome5_rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -45,7 +47,6 @@ end
 gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem 'jquery-rails'
-gem 'paperclip', '~> 6.0.0'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

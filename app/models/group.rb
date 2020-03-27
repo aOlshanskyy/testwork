@@ -6,4 +6,5 @@ class Group < ApplicationRecord
   has_many :enters
   has_many :events
   has_many :candidates
+  has_many :users, through: :enters
 end
